@@ -1,11 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import Timeline from '../components/Timeline.astro'
+
+const expMock = [
+    {
+		url: 'https://fasmee.gob.ve/',
+        date: 'Septiembre 2021 - Marzo 2024',
+        title: 'Fondo Autoadministrado de Salud del MPPEE',
+		details: 'Programador de Sistemas',
+        description: 'Desarrollo, puesta en producción y mantenimiento de Sitio Web Institucional, configuración de servicios virtualizados en PROXMOX y Soporte Técnico.'
+    }
+]
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<Navbar/>
+	<Navbar/>
+	<main class="px-14 lg:px-64">
+		<div class="py-4">
+			<h1 class="text-indigo-100 font-bold text-3xl">Experiencia Laboral</h1>
+		</div>
+		{
+			expMock.map((exp, index) => (
+				<Timeline date={exp.date} title={exp.title} description={exp.description} url={exp.url} details={exp.details} key={index}/>
+			))
+		}
 	</main>
 </Layout>
 
