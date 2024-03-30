@@ -2,21 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Timeline from '../components/Timeline.astro'
-
-const expMock = [
-    {
-		url: 'https://fasmee.gob.ve/',
-        date: 'Septiembre 2021 - Marzo 2024',
-        title: 'Fondo Autoadministrado de Salud del MPPEE',
-		details: 'Programador de Sistemas',
-        description: 'Desarrollo, puesta en producción y mantenimiento de Sitio Web Institucional, configuración de servicios virtualizados en PROXMOX y Soporte Técnico.'
-    }
-]
+import SimpleCard from '../components/SimpleCard.astro'
+import { expMock } from '../data/Exp'
+import { projectMock } from '../data/Projects'
 ---
 
 <Layout title="Welcome to Astro.">
 	<Navbar/>
 	<main class="px-14 lg:px-64">
+
 		<div class="py-4">
 			<h1 class="text-indigo-100 font-bold text-3xl">Experiencia Laboral</h1>
 		</div>
@@ -25,6 +19,17 @@ const expMock = [
 				<Timeline date={exp.date} title={exp.title} description={exp.description} url={exp.url} details={exp.details} key={index}/>
 			))
 		}
+
+		<div class="py-3">
+			<h1 class="text-indigo-100 font-bold text-3xl">Proyectos</h1>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+			{
+				projectMock.map((project, index) => (
+					<SimpleCard title={project.title} description={project.description} url={project.url} tags={project.tags} key={index}/>
+				))
+			}
+		</div>
 	</main>
 </Layout>
 
