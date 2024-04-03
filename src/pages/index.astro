@@ -4,14 +4,40 @@ import Navbar from "../components/Navbar.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
 import { expMock } from "../data/Exp";
-import { projectMock } from "../data/Projects";
+
+const GetProject = fetch(
+  "https://api.github.com/users/chrisestabaocupado/repos",
+  {
+    headers: {
+      Authorization: "Bearer " + import.meta.env.GITHUB_TOKEN,
+    },
+  }
+)
+  .then((res) => res.json())
+  .then((data) => {
+    return data.map((project) => {
+      return {
+        title: project.name,
+        language: project.language,
+        description: project.description,
+        url: project.html_url,
+        tags: project.topics,
+      };
+    });
+  });
+const Projects = await GetProject;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Personal Portfolio">
   <Navbar />
-  <main class="py-5 px-8 lg:px-56">
+  <main
+    style="background-image: url('/background.png');background-size: 300px;opacity: 0.3;"
+    class="py-5 px-8 lg:px-56"
+  >
+    <div class="w-full h-64 bg-repeat"></div>
+
     <div class="pb-4">
-      <h1 class="text-indigo-100 font-bold text-3xl">Experiencia Laboral</h1>
+      <h1 class="text-white font-bold text-3xl">Experiencia Laboral</h1>
     </div>
     {
       expMock.map((exp, index) => (
@@ -25,13 +51,12 @@ import { projectMock } from "../data/Projects";
         />
       ))
     }
-
     <div class="py-3">
-      <h1 class="text-indigo-100 font-bold text-3xl">Proyectos</h1>
+      <h1 class="text-white font-bold text-3xl">Proyectos</h1>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {
-        projectMock.map((project, index) => (
+        Projects.map((project, index) => (
           <SimpleCard
             title={project.title}
             description={project.description}
