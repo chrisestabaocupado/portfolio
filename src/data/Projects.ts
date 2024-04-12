@@ -1,12 +1,16 @@
-interface Project {
-  title: string;
+export interface Project {
+  name: string;
   language: string;
   description: string;
-  url: string;
-  tags: string[];
+  html_url: string;
+  topics: string[];
 }
 
-export const GetProyectsPagination = async (token, page, items) => {
+export const GetProyectsPagination = async (
+  token: string,
+  page: number,
+  items: number
+) => {
   const GetProjects = fetch(
     `https://api.github.com/user/repos?page=${page}&per_page=${items}`,
     {
@@ -17,13 +21,15 @@ export const GetProyectsPagination = async (token, page, items) => {
   )
     .then((res) => res.json())
     .then((data) => {
-      return data.map((project) => {
+      return data.map((project: Project) => {
         return {
-          title: project.name,
+          name: project.name,
           language: project.language,
           description: project.description,
-          url: project.html_url,
-          tags: project.topics.filter((tag) => project.topics.indexOf(tag) < 2),
+          html_url: project.html_url,
+          topics: project.topics.filter(
+            (tag: string) => project.topics.indexOf(tag) < 2
+          ),
         };
       });
     });

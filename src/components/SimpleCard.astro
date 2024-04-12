@@ -1,5 +1,5 @@
 ---
-const { title, description, url, tags } = Astro.props;
+const { name, description, html_url, topics } = Astro.props;
 ---
 
 <div>
@@ -7,13 +7,13 @@ const { title, description, url, tags } = Astro.props;
     class="h-full rounded-lg bg-gradient-to-r p-0.5 from-pink-500 via-red-500 to-yellow-500 hover:shadow-lg hover:scale-105 transition-transform duration-150 ease-in-out"
   >
     <a
-      href={url}
+      href={html_url}
       target="_blank"
       class="rounded-lg flex flex-col h-full p-5 gap-2 justify-center bg-indigo-800 hover:bg-transparent transition-colors duration-150 ease-in-out back"
     >
       <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row items-center">
-          <h1 class="font-semibold text-lg text-white">{title}</h1>
+          <h1 class="font-semibold text-lg text-white">{name}</h1>
         </div>
         <div class="flex flex-row">
           <svg
@@ -40,7 +40,7 @@ const { title, description, url, tags } = Astro.props;
       </p>
       <div class="flex flex-row gap-2 flex-wrap">
         {
-          tags.map((tag: String) => (
+          topics.map((tag: String) => (
             <span class="text-sm font-semibold rounded-xl border-2 border-black bg-yellow-300 mt-4 text-black px-4 py-1 hover:shadow-lg hover:scale-110 transition-transform duration-100 ease-in-out lg:mt-0">
               {tag}
             </span>
