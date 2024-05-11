@@ -19,6 +19,7 @@ export const GetProyectsPagination = async (
       },
     }
   )
+    .catch(err => console.error(err))
     .then((res) => res.json())
     .then((data) => {
       return data.map((project: Project) => {
