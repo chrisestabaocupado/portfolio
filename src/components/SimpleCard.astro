@@ -2,9 +2,11 @@
 const { name, description, html_url, topics } = Astro.props;
 ---
 
-<a>
-
-	<div class="flex flex-col gap-5 justify-between w-full text-white">
+<div class="flex flex-col gap-4 md:gap-10 md:flex-row">
+	<a class="md:w-1/2">
+		<img class="rounded-xl hover:scale-105 transition-transform duration-75 ease-in" src="/nvim.png">
+	</a>
+	<div class="flex flex-col gap-3 justify-between text-white md:py-4 md:w-1/2">
 		<div>
 			<h1 class="text-xl">{name}</h1>
 		</div>
@@ -12,7 +14,7 @@ const { name, description, html_url, topics } = Astro.props;
 		<div class="flex flex-row gap-5">
 			{
 				topics.map((tag: String) => (
-					<span class="px-3 bg-gray-700 rounded-lg shadow-lg">
+					<span class="px-3 py-0.5 text-black bg-pink-300 rounded-lg shadow-lg">
 						{tag}
 					</span>
 				))
@@ -21,11 +23,9 @@ const { name, description, html_url, topics } = Astro.props;
 		<p>
 			{description}
 		</p>
-
-		<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+		<button class="bg-gray-800 w-full px-5 py-2 rounded-lg hover:bg-gray-600 hover:scale-105 transition-all duration-75 ease-in-out">Código</button>
 	</div>
-
-</a>
+</div>
 
 
 <style>
