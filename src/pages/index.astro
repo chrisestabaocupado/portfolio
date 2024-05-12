@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import About from "../components/About.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
 // Mocks and requests
@@ -15,6 +16,7 @@ const Projects: any = await GetProyectsPagination(github_token, 1, 3);
 <Layout title="Personal Portfolio">
   <Navbar />
   <main class="py-5 px-8 lg:px-56">
+	<About />
     <div class="pb-4">
       <h1 class="text-white font-bold text-3xl">Experiencia Laboral</h1>
     </div>
