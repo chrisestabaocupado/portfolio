@@ -6,16 +6,12 @@ import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
 // Mocks and requests
 import { expMock } from "../data/Exp";
-import type { Project } from "../data/Projects";
-import { GetProyectsPagination } from "../data/Projects";
-// Get projects
-const github_token = import.meta.env.GITHUB_TOKEN;
-const Projects: any = await GetProyectsPagination(github_token, 1, 3);
+import { Projects } from "../data/Projects";
 ---
 
 <Layout title="Personal Portfolio">
   <Navbar />
-  <main class="flex flex-col gap-5 py-5 px-8 lg:px-56">
+  <main class="flex flex-col gap-5 py-10 px-8 lg:px-64">
 	<About />
     <div>
 		<h1 class="text-white font-bold text-3xl mb-4">Experiencia Laboral</h1>
@@ -38,10 +34,11 @@ const Projects: any = await GetProyectsPagination(github_token, 1, 3);
 			{
 				Projects.map((project: Project, index: number) => (
 					<SimpleCard
-						name={project.name}
+						title={project.title}
 						description={project.description}
-						html_url={project.html_url}
-						topics={project.topics}
+						img_url={project.img_url}
+						url={project.url}
+						tags={project.tags}
 						key={index}
 					/>
 				))
