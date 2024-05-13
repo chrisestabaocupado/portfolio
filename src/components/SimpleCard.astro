@@ -1,19 +1,19 @@
 ---
-const { name, description, html_url, topics } = Astro.props;
+const { title, description, project_url, img_url,tags } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4 md:gap-10 md:flex-row">
-	<a class="md:w-1/2">
-		<img class="rounded-xl hover:scale-105 transition-transform duration-75 ease-in" src="/nvim.png">
+	<a href={project_url} class="md:w-1/2">
+		<img class="rounded-xl hover:scale-105 transition-transform duration-75 ease-in" src={img_url}>
 	</a>
 	<div class="flex flex-col gap-3 justify-between text-white md:py-4 md:w-1/2">
 		<div>
-			<h1 class="text-xl">{name}</h1>
+			<h1 class="text-xl">{title}</h1>
 		</div>
 
 		<div class="flex flex-row gap-5">
 			{
-				topics.map((tag: String) => (
+				tags.map((tag: String) => (
 					<span class="px-3 py-0.5 text-black bg-pink-300 rounded-lg shadow-lg">
 						{tag}
 					</span>
