@@ -16,7 +16,7 @@ import { Projects } from "../data/Projects";
     <div>
 		<h1 class="text-white font-bold text-3xl mb-4">Experiencia Laboral</h1>
 		{
-			expMock.map((exp, index) => (
+			expMock.map((exp, index: number) => (
 				<Timeline
 					date={exp.date}
 					title={exp.title}
@@ -32,7 +32,7 @@ import { Projects } from "../data/Projects";
 		<h1 class="text-white font-bold text-3xl mb-4">Proyectos</h1>
 		<div class="grid grid-cols-1 gap-5">
 			{
-				Projects.map((project: Project, index: number) => (
+				Projects.map((project, index: number) => (
 					<SimpleCard
 						title={project.title}
 						description={project.description}
