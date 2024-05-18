@@ -10,11 +10,17 @@ import { Projects } from "../data/Projects";
 ---
 
 <Layout title="Personal Portfolio">
+
   <Navbar />
-  <main class="flex flex-col gap-5 py-10 px-8 lg:px-64">
-	<About />
-    <div>
-		<h1 class="text-white font-bold text-3xl mb-4">Experiencia Laboral</h1>
+
+  <main class="flex flex-col gap-5 py-10 px-8">
+
+	<div class="xl:px-20">
+		<About />
+	</div>
+
+    <div class="flex flex-col gap-4">
+		<h1 class="text-white font-bold text-3xl">Experiencia Laboral</h1>
 		{
 			expMock.map((exp, index: number) => (
 				<Timeline
@@ -28,9 +34,10 @@ import { Projects } from "../data/Projects";
 			))
 		}
 	</div>
-	<div>
-		<h1 class="text-white font-bold text-3xl mb-4">Proyectos</h1>
-		<div class="grid grid-cols-1 gap-10">
+
+	<div class="flex flex-col gap-4">
+		<h1 class="text-white font-bold text-3xl">Proyectos</h1>
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
 			{
 				Projects.map((project, index: number) => (
 					<SimpleCard
