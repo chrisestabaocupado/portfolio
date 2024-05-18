@@ -12,6 +12,13 @@ export const Projects: Project[] = [
 		tags: ["Javascript", "PUG", "ExpressJS", "Bootstrap"],
 		description: "Sitio web institucional para una aseguradora",
 		project_url: "https://fasmee.gob.ve/",
-		img_url: "/nvim.png"
+		img_url: "/projects/fasmee.png"
+	},
+	{
+		title: "ecommerce",
+		tags: ["ExpressJS", "Bootstrap", "PUG"],
+		description: "Sitio web de comercio electrónico",
+		project_url: "https://github.com/chrisestabaocupado/ecommerce",
+		img_url: "/projects/nvim.png"
 	}
 ];
