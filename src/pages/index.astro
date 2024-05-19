@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import About from "../components/About.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
@@ -13,7 +14,7 @@ import { Projects } from "../data/Projects";
 
   <Navbar />
 
-  <main class="flex flex-col gap-5 py-10 px-8">
+  <main class="flex flex-col gap-5 py-14 px-8">
 
 	<div class="xl:px-20">
 		<About />
@@ -53,6 +54,9 @@ import { Projects } from "../data/Projects";
 		</div>
 	</div>
   </main>
+
+	<Footer />
+
 </Layout>
 
 <style></style>
