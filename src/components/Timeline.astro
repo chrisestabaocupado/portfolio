@@ -1,26 +1,32 @@
 ---
-const { title, date, description, url, details } = Astro.props
+const { title, date, description, url, details } = Astro.props;
 ---
 
 <section class="flex flex-row flex-wrap gap-4">
-    <ol class="relative border-s-4 border-gray-200">                  
-        <li class="mb-10 ms-4">
-            <div class="absolute w-4 h-4 rounded-full mt-1.5 -start-2.5 bg-pink-600"></div>
-            <h3 class="font-bold text-xl text-pink-300">
-                {details}
-            </h3>
-            <h4 class="text-base font-semibold text-white">
-                {title}
-            </h3>
-            <time class="mb-1 text-sm font-semibold leading-none text-yellow-300">
-                {date}
-            </time>
-            <p class="mb-6 text-justify text-base font-normal text-gray-200">
-                {description}
-            </p>
-            <a href=`${url}` target="__blank" class="text-gray-100 bg-gray-800 mt-auto p-3 rounded-xl hover:bg-gray-600 hover:shadow-xl transition-all ease-in-out duration-200">
-                Más información
-            </a>
-        </li>
-    </ol>
+  <ol class="relative border-s-4 border-gray-200">
+    <li class="mb-10 ms-4">
+      <div class="absolute w-4 h-4 rounded-full mt-1.5 -start-2.5 bg-tertiary">
+      </div>
+      <h3 class="font-bold text-xl text-accent">
+        {details}
+      </h3>
+      <h4 class="text-sm font-semibold text-accent-900">
+        {title}
+      </h4>
+      <!-- Corregido el cierre de la etiqueta -->
+      <time class="mb-1 text-sm font-semibold leading-none text-accent-900">
+        {date}
+      </time>
+      <p class="mb-6 text-justify text-base font-normal text-light-900">
+        {description}
+      </p>
+      <a
+        href={url}
+        target="_blank"
+        class="text-gray-100 bg-primary mt-auto p-3 rounded-xl hover:bg-secondary-500 transition-all ease-in-out duration-200"
+      >
+        Más información
+      </a>
+    </li>
+  </ol>
 </section>

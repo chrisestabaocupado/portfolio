@@ -5,58 +5,56 @@ import Footer from "../components/Footer.astro";
 import About from "../components/About.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
+
 // Mocks and requests
 import { expMock } from "../data/Exp";
 import { Projects } from "../data/Projects";
 ---
 
 <Layout title="Personal Portfolio">
-
   <Navbar />
 
-  <main class="flex flex-col gap-5 py-14 px-8">
+  <main class="flex flex-col gap-10 py-10 px-6 md:px-12 lg:px-20">
+    <!-- Sección Sobre Mí -->
+    <div>
+      <About />
+    </div>
 
-	<div class="xl:px-20">
-		<About />
-	</div>
+    <!-- Sección Experiencia Laboral -->
+    <section class="flex flex-col gap-6">
+      <h1 class="text-white font-bold text-3xl">Experiencia Laboral</h1>
+      {
+        expMock.map((exp) => (
+          <Timeline
+            key={exp.id}
+            date={exp.date}
+            title={exp.title}
+            description={exp.description}
+            url={exp.url}
+            details={exp.details}
+          />
+        ))
+      }
+    </section>
 
-    <div class="flex flex-col gap-4">
-		<h1 class="text-white font-bold text-3xl">Experiencia Laboral</h1>
-		{
-			expMock.map((exp, index: number) => (
-				<Timeline
-					date={exp.date}
-					title={exp.title}
-					description={exp.description}
-					url={exp.url}
-					details={exp.details}
-					key={index}
-				/>
-			))
-		}
-	</div>
-
-	<div class="flex flex-col gap-4">
-		<h1 class="text-white font-bold text-3xl">Proyectos</h1>
-		<div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
-			{
-				Projects.map((project, index: number) => (
-					<SimpleCard
-						title={project.title}
-						description={project.description}
-						img_url={project.img_url}
-						project_url={project.project_url}
-						tags={project.tags}
-						key={index}
-					/>
-				))
-			}
-		</div>
-	</div>
+    <!-- Sección Proyectos -->
+    <section class="flex flex-col gap-6">
+      <h1 class="text-white font-bold text-3xl">Proyectos</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          Projects.map((project) => (
+            <SimpleCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              img_url={project.img_url}
+              project_url={project.project_url}
+              tags={project.tags}
+            />
+          ))
+        }
+      </div>
+    </section>
   </main>
-
-	<Footer />
-
+  <Footer />
 </Layout>
-
-<style></style>
