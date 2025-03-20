@@ -13,7 +13,7 @@ export const Projects: Project[] = [
     title: "FASMEE",
     tags: ["Javascript", "PUG", "ExpressJS", "Bootstrap"],
     description:
-      "El sitio web institucional del FASMEE es una plataforma moderna y accesible que informa a los usuarios sobre los servicios, logros y actividades de la institución, facilitando el acceso a contenido relevante de manera clara y organizada.",
+      "Sitio web institucional del FASMEE con información sobre servicios y actividades, diseñado para ser accesible y fácil de navegar.",
     project_url: "https://fasmee.gob.ve/",
     img_url: "/projects/fasmee.png",
   },
@@ -21,7 +21,8 @@ export const Projects: Project[] = [
     id: "ecommerce",
     title: "ecommerce",
     tags: ["ExpressJS", "Bootstrap", "PUG"],
-    description: "Sitio web de comercio electrónico",
+    description:
+      "Plataforma de comercio electrónico con ExpressJS y Bootstrap, optimizada para una experiencia de compra fluida y responsiva.",
     project_url: "https://github.com/chrisestabaocupado/ecommerce",
     img_url: "/projects/nvim.png",
   },
@@ -29,7 +30,8 @@ export const Projects: Project[] = [
     id: "python",
     title: "Fundamentos de Python",
     tags: ["Python"],
-    description: "Fundamentos de Python",
+    description:
+      "Repositorio con fundamentos de Python, ideal para aprender y reforzar conceptos básicos y avanzados.",
     img_url: "/projects/python.png",
     project_url: "https://github.com/chrisestabaocupado/python",
   },
