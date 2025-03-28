@@ -1,0 +1,93 @@
+---
+const tabs = [
+  { name: "Frontend", icon: "World", type: "frontend" },
+  { name: "Backend", icon: "Server", type: "backend" },
+  { name: "Bases de Datos", icon: "Database", type: "database" },
+  { name: "Herramientas", icon: "Tool", type: "tools" },
+];
+//importing frontend icons
+import Tailwind from "../../icons/Tailwind.astro";
+import Bootstrap from "../../icons/Bootstrap.astro";
+import CSS from "../../icons/Css.astro";
+//importing backend icons
+import Postgresql from  "../../icons/Postgresql.astro"
+import MongoDB from "../../icons/MongoDB.astro";
+import Firebase from "../../icons/Firebase.astro";
+---
+<div id="techCategories" class="w-full flex flex-row gap-2 bg-primary-500 p-2 rounded-2xl">
+    {
+        tabs.map((tab) => (
+            <button class="w-full justify-center flex flex-row gap-2 rounded-2xl py-1 hover:bg-dark" data-type={tab.type}>
+                <img class="filter invert" src={"/icons/"+tab.icon+".svg"} alt={tab.icon + " icon"}/>
+                <span class="hidden md:block text-light-900">{tab.name}</span>
+            </button>
+        ))
+    }
+</div>
+
+<div id="techContent" class="my-4">
+    <div class="hidden w-full" data-type="frontend">
+        <span class="grid grid-cols-4 text-center">
+            <span class="h-16 mx-auto">
+                <Tailwind classes="text-dark-900 h-full"/>
+                <span class="text-sm text-light-900">Tailwind</span>
+            </span>
+            <span class="h-16 mx-auto text-center">
+                <Bootstrap classes="h-full"/>
+                <span class="text-sm text-light-900">Bootstrap</span>
+            </span>
+            <span class="h-16 mx-auto text-center">
+                <CSS classes="text-dark-900 h-full"/>
+                <span class="text-sm text-light-900">CSS</span>
+            </span>
+        </span>
+    </div>
+    <div class="hidden w-full" data-type="database">
+        <span class="grid grid-cols-4">
+            <span class="h-16 mx-auto text-center">
+                <Postgresql classes="text-dark-900 h-full"/>
+                <span class="text-sm text-light-900">Postgresql</span>
+            </span>
+            <span class="h-16 mx-auto text-center">
+                <MongoDB classes="text-dark-900 h-full"/>
+                <span class="text-sm text-light-900">MongoDB</span>
+            </span>
+            <span class="h-16 mx-auto text-center">
+                <Firebase classes="text-dark-900 h-full"/>
+                <span class="text-sm text-light-900">Firebase</span>
+            </span>
+        </span>
+    </div>
+    <div class="hidden" data-type="backend">
+        <span>Database</span>
+    </div>
+    <div class="hidden" data-type="tools">
+        <span>Tools</span>
+    </div>
+</div>
+
+<script>
+    const techCategories= document.getElementById("techCategories");
+    const buttons = techCategories?.querySelectorAll("button");
+    const techContent = document.getElementById("techContent");
+    const content = techContent?.getElementsByTagName("div");
+    buttons?.forEach((button) => { 
+        button.addEventListener("click", () => {
+            const type = button.getAttribute("data-type");
+            if (!type) return;
+            // ocultar todo
+            for (let div of content!){
+                div.classList.add("hidden")
+            }
+            // reset de botones
+            buttons.forEach((btn) => {btn.classList.remove("bg-dark");btn.disabled = false});
+            // mostrar el contenedor que corresponde y resaltando boton
+            const selectedContent = techContent!.querySelector(`div[data-type="${type}"]`);
+            if (selectedContent) {
+                selectedContent.classList.remove("hidden");
+            }
+            button.classList.add("bg-dark");
+            button.disabled = true;
+        });
+    });
+</script>

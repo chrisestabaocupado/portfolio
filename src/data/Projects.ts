@@ -17,15 +17,6 @@ export const Projects: Project[] = [
     project_url: "https://fasmee.gob.ve/",
     img_url: "/projects/fasmee.png",
   },
-  /* {
-    id: "ecommerce",
-    title: "ecommerce",
-    tags: ["ExpressJS", "Bootstrap", "PUG"],
-    description:
-      "Plataforma de comercio electrónico con ExpressJS y Bootstrap, optimizada para una experiencia de compra fluida y responsiva.",
-    project_url: "https://github.com/chrisestabaocupado/ecommerce",
-    img_url: "/projects/nvim.png",
-  }, */
   {
     id: "python",
     title: "Fundamentos de Python",

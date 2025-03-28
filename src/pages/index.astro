@@ -6,6 +6,7 @@ import About from "../components/About.astro";
 import DetailedAbout from "../components/DetailedAbout.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
+import TechCategories from "../components/TechStack/TechCategories.astro";
 // Mocks and requests
 import { expMock } from "../data/Exp";
 import { Projects } from "../data/Projects";
@@ -63,6 +64,11 @@ import { Projects } from "../data/Projects";
     <section>
       <h1 class="text-white text-left font-bold text-3xl mb-4">Sobre mí</h1>
       <DetailedAbout />
+    </section>
+
+    <section>
+      <h1 class="text-white text-left font-bold text-3xl mb-4">Habilidades</h1>
+      <TechCategories />
     </section>
   </main>
   <Footer />
