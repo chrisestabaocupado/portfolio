@@ -80,6 +80,7 @@ import DropdownIcon from "../icons/Dropdown.astro";
 </div>
 
 <script>
+  import { animate } from "motion";
   const toggle = document.getElementById("links-toggle");
   toggle?.addEventListener("click", () => {
     const links = document.getElementById("links");

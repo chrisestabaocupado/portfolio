@@ -115,11 +115,6 @@ const tabs = [
         selectedContent.classList.remove("hidden");
         animate(
           selectedContent.querySelectorAll(".tech"),
-          { opacity: [0, 1] },
-          { duration: 0.5, delay: stagger(0.35) }
-        );
-        animate(
-          selectedContent.querySelectorAll(".tech"),
           {
             opacity: [0, 1],
             transform: ["translateY(-10px)", "translateY(0px)"],
