@@ -45,15 +45,15 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
 <div id="techContent">
   <div class="hidden w-full" data-type="frontend">
     <span class="grid grid-cols-4 text-center">
-      <span class="h-16 mx-auto">
+      <span class="tech h-16 mx-auto">
         <Tailwind classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">Tailwind</span>
       </span>
-      <span class="h-16 mx-auto text-center">
+      <span class="tech h-16 mx-auto text-center">
         <Bootstrap classes="h-full" />
         <span class="text-sm text-light-900">Bootstrap</span>
       </span>
-      <span class="h-16 mx-auto text-center">
+      <span class="tech h-16 mx-auto text-center">
         <CSS classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">CSS</span>
       </span>
@@ -61,15 +61,15 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
   </div>
   <div class="hidden w-full" data-type="database">
     <span class="grid grid-cols-4">
-      <span class="h-16 mx-auto text-center">
+      <span class="tech h-16 mx-auto text-center">
         <Postgresql classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">Postgresql</span>
       </span>
-      <span class="h-16 mx-auto text-center">
+      <span class="tech h-16 mx-auto text-center">
         <MongoDB classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">MongoDB</span>
       </span>
-      <span class="h-16 mx-auto text-center">
+      <span class="tech h-16 mx-auto text-center">
         <Firebase classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900 text-center">Firebase</span>
       </span>
@@ -77,15 +77,15 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
   </div>
   <div class="hidden w-full" data-type="backend">
     <span class="grid grid-cols-4">
-      <span class="mx-auto h-16 text-center">
+      <span class="tech tech mx-auto h-16 text-center">
         <Nest classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">NestJS</span>
       </span>
-      <span class="mx-auto h-16 text-center">
+      <span class="tech mx-auto h-16 text-center">
         <Express classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">Express</span>
       </span>
-      <span class="mx-auto h-16 text-center">
+      <span class="tech mx-auto h-16 text-center">
         <Swagger classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">Swagger</span>
       </span>
@@ -93,7 +93,7 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
   </div>
   <div class="hidden w-full" data-type="tools">
     <span class="grid grid-cols-4">
-      <span class="mx-auto text-center h-16">
+      <span class="tech mx-auto text-center h-16">
         <Proxmox classes="text-dark-900 h-full" />
         <span class="text-sm text-light-900">Proxmox</span>
       </span>
@@ -102,10 +102,13 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
 </div>
 
 <script>
+  import { animate, stagger } from "motion";
+  // selectores
   const techCategories = document.getElementById("techCategories");
   const buttons = techCategories?.querySelectorAll("button");
   const techContent = document.getElementById("techContent");
   const content = techContent?.getElementsByTagName("div");
+  // clickeando el primer boton
   document.addEventListener("DOMContentLoaded", () => {
     const firstButton = techCategories?.querySelector("button");
     firstButton!.click();
@@ -129,6 +132,19 @@ import Proxmox from "../../icons/Tech/Proxmox.astro";
       );
       if (selectedContent) {
         selectedContent.classList.remove("hidden");
+        animate(
+          selectedContent.querySelectorAll(".tech"),
+          { opacity: [0, 1] },
+          { duration: 0.5, delay: stagger(0.35) }
+        );
+        animate(
+          selectedContent.querySelectorAll(".tech"),
+          {
+            opacity: [0, 1],
+            transform: ["translateY(-10px)", "translateY(0px)"],
+          },
+          { duration: 0.6, delay: stagger(0.3) }
+        );
       }
       button.classList.add("bg-dark");
       button.disabled = true;
