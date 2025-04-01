@@ -1,10 +1,9 @@
 ---
-const tabs = [
-  { name: "Frontend", icon: "World", type: "frontend" },
-  { name: "Backend", icon: "Server", type: "backend" },
-  { name: "Bases de Datos", icon: "Database", type: "database" },
-  { name: "Herramientas", icon: "Tool", type: "tools" },
-];
+// importing tabs icons
+import World from "../../icons/TechTabs/World.astro";
+import Server from "../../icons/TechTabs/Server.astro";
+import Database from "../../icons/TechTabs/Database.astro";
+import Tool from "../../icons/TechTabs/Tool.astro";
 // importing frontend icons
 import Tailwind from "../../icons/Tech/Tailwind.astro";
 import Bootstrap from "../../icons/Tech/Bootstrap.astro";
@@ -19,84 +18,66 @@ import Express from "../../icons/Tech/Express.astro";
 import Swagger from "../../icons/Tech/Swagger.astro";
 // importing tools icons
 import Proxmox from "../../icons/Tech/Proxmox.astro";
+// importing icons
+import TechIcon from "./TechIcon.astro"; // Importamos el nuevo componente
+import TechTab from "./TechTab.astro"; // Importamos el nuevo componente
+// building tabs
+const tabs = [
+  {
+    name: "Frontend",
+    icon: World,
+    type: "frontend",
+  },
+  {
+    name: "Backend",
+    icon: Server,
+    type: "backend",
+  },
+  {
+    name: "Bases de Datos",
+    icon: Database,
+    type: "database",
+  },
+  {
+    name: "Herramientas",
+    icon: Tool,
+    type: "tools",
+  },
+];
 ---
 
 <div
   id="techCategories"
   class="w-full flex flex-row gap-2 bg-primary-500 p-2 rounded-2xl mb-5"
 >
-  {
-    tabs.map((tab) => (
-      <button
-        class="w-full justify-center flex flex-row gap-2 rounded-2xl py-1 hover:bg-dark"
-        data-type={tab.type}
-      >
-        <img
-          class="filter invert"
-          src={"/icons/" + tab.icon + ".svg"}
-          alt={tab.icon + " icon"}
-        />
-        <span class="hidden md:block text-light-900">{tab.name}</span>
-      </button>
-    ))
-  }
+  {tabs.map((tab) => <TechTab tab={tab} Icon={tab.icon} />)}
 </div>
 
 <div id="techContent">
   <div class="hidden w-full" data-type="frontend">
-    <span class="grid grid-cols-4 text-center">
-      <span class="tech h-16 mx-auto">
-        <Tailwind classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">Tailwind</span>
-      </span>
-      <span class="tech h-16 mx-auto text-center">
-        <Bootstrap classes="h-full" />
-        <span class="text-sm text-light-900">Bootstrap</span>
-      </span>
-      <span class="tech h-16 mx-auto text-center">
-        <CSS classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">CSS</span>
-      </span>
+    <span class="grid grid-cols-4">
+      <TechIcon Icon={Tailwind} name="Tailwind" />
+      <TechIcon Icon={Bootstrap} name="Bootstrap" />
+      <TechIcon Icon={CSS} name="CSS" />
     </span>
   </div>
   <div class="hidden w-full" data-type="database">
     <span class="grid grid-cols-4">
-      <span class="tech h-16 mx-auto text-center">
-        <Postgresql classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">Postgresql</span>
-      </span>
-      <span class="tech h-16 mx-auto text-center">
-        <MongoDB classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">MongoDB</span>
-      </span>
-      <span class="tech h-16 mx-auto text-center">
-        <Firebase classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900 text-center">Firebase</span>
-      </span>
+      <TechIcon Icon={Postgresql} name="Postgresql" />
+      <TechIcon Icon={MongoDB} name="MongoDB" />
+      <TechIcon Icon={Firebase} name="Firebase" />
     </span>
   </div>
   <div class="hidden w-full" data-type="backend">
     <span class="grid grid-cols-4">
-      <span class="tech tech mx-auto h-16 text-center">
-        <Nest classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">NestJS</span>
-      </span>
-      <span class="tech mx-auto h-16 text-center">
-        <Express classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">Express</span>
-      </span>
-      <span class="tech mx-auto h-16 text-center">
-        <Swagger classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">Swagger</span>
-      </span>
+      <TechIcon Icon={Nest} name="NestJS" />
+      <TechIcon Icon={Express} name="Express" />
+      <TechIcon Icon={Swagger} name="Swagger" />
     </span>
   </div>
   <div class="hidden w-full" data-type="tools">
     <span class="grid grid-cols-4">
-      <span class="tech mx-auto text-center h-16">
-        <Proxmox classes="text-dark-900 h-full" />
-        <span class="text-sm text-light-900">Proxmox</span>
-      </span>
+      <TechIcon Icon={Proxmox} name="Proxmox" />
     </span>
   </div>
 </div>
