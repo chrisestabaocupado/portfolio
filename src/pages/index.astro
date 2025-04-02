@@ -7,6 +7,7 @@ import DetailedAbout from "../components/DetailedAbout.astro";
 import Timeline from "../components/Timeline.astro";
 import SimpleCard from "../components/SimpleCard.astro";
 import TechCategories from "../components/TechStack/TechCategories.astro";
+import SideAccess from "../components/SideAccess.astro";
 // Mocks and requests
 import { expMock } from "../data/Exp";
 import { Projects } from "../data/Projects";
@@ -71,5 +72,10 @@ import { Projects } from "../data/Projects";
       <DetailedAbout />
     </section>
   </main>
+  <section
+    class="flex-row py-10 px-6 hidden lg:block lg:p-0 lg:fixed lg:h-screen lg:items-center lg:left-0 lg:top-0"
+  >
+    <SideAccess />
+  </section>
   <Footer />
 </Layout>
