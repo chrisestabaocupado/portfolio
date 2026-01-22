@@ -21,9 +21,10 @@ const sections = [
       <span>christopherglood@gmail.com</span>
     </a>
     <button
-      aria-label="navbarToggle"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
       id="links-toggle"
-      class="rounded border p-2 border-transparent hover:bg-primary-hover transition-colors duration-200 md:hidden md:w-50"
+      class="rounded border p-2 border-transparent hover:bg-primary-hover transition-colors duration-200 md:hidden md:w-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <DropdownIcon />
     </button>
@@ -39,10 +40,10 @@ const sections = [
       {
         sections.map((section) => (
           <li class="w-full hover:bg-primary-hover transition-colors duration-200 md:hover:bg-transparent">
-            <a
-              class="inline-block w-full py-2.5 hover:text-accent-hover transition-colors duration-200 md:w-max"
-              href={section.href}
-            >
+             <a
+               class="inline-block w-full py-2.5 hover:text-accent-hover transition-colors duration-200 md:w-max focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+               href={section.href}
+             >
               {section.name}
             </a>
           </li>
@@ -56,7 +57,9 @@ const sections = [
   const toggle = document.getElementById("links-toggle");
   toggle?.addEventListener("click", () => {
     const links = document.getElementById("links");
-    links?.classList.toggle("hidden");
+    const isHidden = links?.classList.toggle("hidden");
+    // Actualizar aria-expanded para accesibilidad
+    toggle?.setAttribute("aria-expanded", isHidden ? "false" : "true");
   });
   /*
   // --- Lógica del Scroll para el Background ---

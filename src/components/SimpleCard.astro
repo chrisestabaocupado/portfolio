@@ -10,17 +10,20 @@ const card_id = `project-card-${key}`;
   }`
 >
   <div class="relative h-64 rounded-2xl overflow-hidden bg-cover bg-no-repeat w-1/2">
-    <a href={project_url} class="group block w-full h-full cursor-pointer">
+    <a href={project_url} target="_blank" rel="noopener noreferrer" class="group block w-full h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:rounded-2xl">
       <img
+        loading="lazy"
+        decoding="async"
         class="object-cover object-center w-full h-full transition-transform duration-200 group-hover:scale-105"
         src={img_url}
-        alt={title}
+        alt={`Captura de pantalla del proyecto ${title}`}
         width="600"
+        height="400"
       />
     </a>
   </div>
   <div class="flex flex-col justify-center gap-3 w-1/2">
-    <a href={project_url} class="group w-fit">
+    <a href={project_url} target="_blank" rel="noopener noreferrer" class="group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded">
       <h1 class="text-lg text-light md:text-2xl font-bold group-hover:text-accent-hover transition-colors duration-200">{title}</h1>
     </a>
 

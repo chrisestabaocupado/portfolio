@@ -12,16 +12,18 @@ const {
 <a
   class="flex flex-col max-w-xs gap-2 bg-background-500 border border-primary hover:border-accent-hover rounded-xl p-4 shadow-lg w-full z-10 hover:scale-105 transition-all duration-200"
   href={url}
+  target="_blank"
+  rel="noopener noreferrer"
 >
   <time class="text-text-muted">
     {date}
   </time>
-  <h2 class="font-bold text-lg text-accent">
-    {details}
-  </h2>
-  <h3 class="font-semibold text-light">
+  <h3 class="font-bold text-lg text-accent">
     {title}
   </h3>
+  <p class="font-semibold text-light">
+    {details}
+  </p>
   <p class="text-text-muted">
     {description}
   </p>

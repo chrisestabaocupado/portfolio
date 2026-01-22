@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquear carpeta de archivos temporales
+Disallow: /trash/
+
+# Sitemap
+Sitemap: https://christopherglood.vercel.app/sitemap.xml

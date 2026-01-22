@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,17 +18,61 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Christopher Sae Glood - Desarrollador Fullstack especializado en React, Node.js, Python y desarrollo web moderno. Explora mi portfolio con proyectos y experiencia profesional." />
     <meta name="viewport" content="width=device-width" />
+    <!-- Meta tags SEO esenciales -->
+    <meta name="author" content="Christopher Sae Glood" />
+    <meta name="keywords" content="desarrollador fullstack, react, nodejs, python, desarrollador web, programador, portfolio, christopher glood" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    
+    <!-- Theme color para móviles (barra de estado) -->
+    <meta name="theme-color" content="#0F1419" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="canonical" href={Astro.url.href} />
+    
+    <!-- Structured Data JSON-LD para SEO -->
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Christopher Sae Glood",
+      "alternateName": "Christopher Glood",
+      "jobTitle": "Desarrollador Fullstack",
+      "description": "Desarrollador Fullstack especializado en React, Node.js, Python y desarrollo web moderno",
+      "url": "https://christopherglood.vercel.app",
+      "sameAs": [
+        "https://www.linkedin.com/in/christopherglood/",
+        "https://github.com/chrisestabaocupado"
+      ],
+      "knowsAbout": [
+        "React",
+        "Node.js",
+        "Python",
+        "JavaScript",
+        "Web Development",
+        "Fullstack Development",
+        "ExpressJS",
+        "Bootstrap",
+        "PUG"
+      ]
+    }
+    </script>
+    <link rel="canonical" href={Astro.url.href} />
   </head>
   <body class="min-h-screen bg-background">
     <slot />
   </body>
 </html>
 <style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     font-family: "Crimson Text", serif;
   }
@@ -40,9 +84,5 @@ const { title } = Astro.props;
 
   input, button, textarea, select {
     font-family: inherit;
-  }
-
-  * {
-    scroll-behavior: smooth;
   }
 </style>
