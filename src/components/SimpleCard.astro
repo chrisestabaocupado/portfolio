@@ -5,11 +5,11 @@ const card_id = `project-card-${key}`;
 
 <article
   id={card_id}
-  class=`flex w-full rounded-2xl gap-12 ${
-  index % 2 === 0 ? "flex-row-reverse" : "flex-row"
+  class=`flex flex-col w-full rounded-2xl gap-12 reveal ${
+  index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
   }`
 >
-  <div class="relative h-64 rounded-2xl overflow-hidden bg-cover bg-no-repeat w-1/2">
+  <div class="relative h-64 rounded-2xl overflow-hidden bg-cover bg-no-repeat w-full md:w-1/2">
     <a href={project_url} target="_blank" rel="noopener noreferrer" class="group block w-full h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:rounded-2xl">
       <img
         loading="lazy"
@@ -22,7 +22,7 @@ const card_id = `project-card-${key}`;
       />
     </a>
   </div>
-  <div class="flex flex-col justify-center gap-3 w-1/2">
+  <div class="flex flex-col justify-center gap-3 w-full md:w-1/2">
     <a href={project_url} target="_blank" rel="noopener noreferrer" class="group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded">
       <h1 class="text-lg text-light md:text-2xl font-bold group-hover:text-accent-hover transition-colors duration-200">{title}</h1>
     </a>
