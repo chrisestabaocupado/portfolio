@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@theme {
+  /* Base colors - Dark navy */
+  --color-base: #1A2332;
+  --color-base-500: #2D3A4D;
+  --color-base-900: #0F1419;
+
+  /* Text colors - Light grayish blue */
+  --color-text: #C5D0E6;
+  --color-text-muted: #B8C5DC;
+  --color-text-inverted: #1C2738;
+
+  /* Primary colors - Dark slate blue */
+  --color-primary: #3E5266;
+  --color-primary-hover: #4A5F75;
+  --color-primary-500: #3E5266;
+  --color-primary-900: #2A3847;
+
+  /* Secondary colors - Warm peach/coral */
+  --color-secondary: #E89F6F;
+  --color-secondary-hover: #F0B286;
+  --color-secondary-500: #E89F6F;
+  --color-secondary-900: #D9895C;
+
+  /* Tertiary colors - Medium brown/taupe */
+  --color-tertiary: #6B5A56;
+  --color-tertiary-500: #8B7470;
+  --color-tertiary-900: #4D413E;
+
+  /* Accent colors - Warm orange */
+  --color-accent: #E8A76F;
+  --color-accent-hover: #F0B887;
+  --color-accent-soft: #F5D4B0;
+  --color-accent-500: #E8A76F;
+  --color-accent-900: #D9955C;
+
+  /* Interactive colors - Sky blue */
+  --color-interactive: #7DB5D9;
+  --color-interactive-500: #7DB5D9;
+  --color-interactive-900: #5A9EC7;
+
+  /* Light colors - Off white/light gray */
+  --color-light: #E8E8E8;
+  --color-light-500: #E8E8E8;
+  --color-light-900: #F5F5F5;
+
+  /* Background colors - Very dark navy */
+  --color-background: #0F1419;
+  --color-background-500: #1A2332;
+  --color-background-900: #0A0D11;
+}

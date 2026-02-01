@@ -1,11 +1,20 @@
 export const expMock = [
   {
-    id: "fasmee",
+    id: "fasmee-analista",
     url: "https://fasmee.gob.ve/",
-    date: "Septiembre 2021 - 2025",
+    date: "Septiembre 2021 - Actualidad",
     title: "Fondo Autoadministrado de Salud del MPPEE",
     details: "Analista de Sistemas",
     description:
-      "Desempeñé funciones en el FASMEE relacionadas con el desarrollo y mantenimiento del sitio web institucional, la administración de Active Directory, la gestión del correo institucional y el manejo de bases de datos PostgreSQL. Asimismo, supervisé la virtualización de servicios con PROXMOX y proporcioné soporte técnico a la infraestructura tecnológica.",
+      "Desarrollo y mantenimiento del sitio web institucional. Gestión de bases de datos PostgreSQL. Soporte técnico y mejora de procesos con soluciones tecnológicas.",
+  },
+  {
+    id: "fasmee-auxiliar",
+    url: "https://fasmee.gob.ve/",
+    date: "Septiembre 2021 - Diciembre 2024",
+    title: "Fondo Autoadministrado de Salud del MPPEE",
+    details: "Auxiliar de Soporte de TI",
+    description:
+      "Soporte técnico de primer nivel: hardware, software, redes y ofimática. Mantenimiento preventivo y correctivo. Instalación de equipos y administración de accesos.",
   },
 ];

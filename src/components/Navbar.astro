@@ -1,28 +1,30 @@
 ---
-import VerifiedIcon from "../icons/Verified.astro";
 import DropdownIcon from "../icons/Dropdown.astro";
+import MailIcon from "../icons/Mail.astro";
+const sections = [
+  { name: "Inicio", href: "#" },
+  { name: "Sobre mi", href: "#detailedaboutme" },
+  { name: "Proyectos", href: "#projects" },
+];
 ---
 
 <div
-  class="flex flex-row w-full h-max flex-wrap justify-between gap-4 px-6 md:px-12 lg:px-20 py-3 items-center md:flex-nowrap lg:max-w-4xl lg:mx-auto"
+  id="navbar"
+  class="flex flex-row z-50 w-full h-max flex-wrap justify-between text-text gap-4 py-4 items-center md:flex-nowrap md:px-20 md:max-w-6xl lg:mx-auto transition-all duration-300 ease-in-out"
 >
   <div class="flex flex-row justify-between items-center w-full">
     <a
-      class="flex flex-row gap-2 items-center hover:brightness-90 transition-all ease-in-out duration-200 md:w-max"
-      href="https://github.com/chrisestabaocupado"
+      class="flex flex-row gap-1 items-center hover:text-accent-hover transition-colors duration-200 md:w-max"
+      href="mailto:christopherglood@gmail.com"
     >
-      <img
-        class="object-fill rounded-full w-9 h-9"
-        src="/pfp.webp"
-        alt="Christopher's Profile Pic"
-      />
-      <h1 class="text-lg font-bold">chrisestabaocupado</h1>
-      <VerifiedIcon />
+      <MailIcon classes="w-4 h-4" />
+      <span>christopherglood@gmail.com</span>
     </a>
     <button
-      aria-label="navbarToggle"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
       id="links-toggle"
-      class="rounded border p-2 border-transparent hover:bg-gray-500 transition-all duration-100 ease-in-out md:hidden md:w-50"
+      class="rounded border p-2 border-transparent hover:bg-primary-hover transition-colors duration-200 md:hidden md:w-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <DropdownIcon />
     </button>
@@ -33,48 +35,20 @@ import DropdownIcon from "../icons/Dropdown.astro";
     id="links"
   >
     <ul
-      class="flex flex-col justify-between text-white items-center text-center text-base sm:flex-row md:gap-10 md:w-fit"
+      class="flex flex-col justify-between items-center text-center sm:flex-row md:gap-10 md:w-fit"
     >
-      <li
-        class="w-full hover:bg-light-500 transition-colors ease-in-out duration-100 md:hover:bg-transparent"
-      >
-        <a
-          class="inline-block w-full py-2.5 font-semibold hover:text-primary lg:hover:text-accent-900 transition-colors duration-100 ease-linear md:w-max"
-          href="#aboutme"
-        >
-          Sobre mi
-        </a>
-      </li>
-      <li
-        class="w-full hover:bg-light-500 transition-colors ease-in-out duration-100 md:hover:bg-transparent"
-      >
-        <a
-          class="inline-block w-full py-2.5 font-semibold hover:text-primary lg:hover:text-accent-900 transition-colors duration-100 ease-linear md:w-max"
-          href="#"
-        >
-          Proyectos
-        </a>
-      </li>
-      <li
-        class="w-full rounded-b-lg hover:bg-light-500 transition-colors ease-in-out duration-100 sm:rounded-bl-none sm:rounded-r-lg md:hover:bg-transparent"
-      >
-        <a
-          class="inline-block w-full py-2.5 font-semibold hover:text-primary lg:hover:text-accent-900 transition-colors duration-100 ease-linear md:w-max"
-          href="mailto:christopherglood@gmail.com"
-        >
-          Contacto
-        </a>
-      </li>
-      <li
-        class="w-full rounded-b-lg hover:bg-light-500 transition-colors ease-in-out duration-100 sm:rounded-bl-none sm:rounded-r-lg md:hover:bg-transparent"
-      >
-        <a
-          class="inline-block w-full py-2.5 font-semibold hover:text-primary lg:hover:text-accent-900 transition-colors duration-100 ease-linear md:w-max"
-          href="#TechStack"
-        >
-          Habilidades
-        </a>
-      </li>
+      {
+        sections.map((section) => (
+          <li class="w-full hover:bg-primary-hover transition-colors duration-200 md:hover:bg-transparent">
+             <a
+               class="inline-block w-full py-2.5 hover:text-accent-hover transition-colors duration-200 md:w-max focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+               href={section.href}
+             >
+              {section.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>
@@ -83,8 +57,43 @@ import DropdownIcon from "../icons/Dropdown.astro";
   const toggle = document.getElementById("links-toggle");
   toggle?.addEventListener("click", () => {
     const links = document.getElementById("links");
-    links?.classList.toggle("hidden");
+    const isHidden = links?.classList.toggle("hidden");
+    // Actualizar aria-expanded para accesibilidad
+    toggle?.setAttribute("aria-expanded", isHidden ? "false" : "true");
   });
+  /*
+  // --- Lógica del Scroll para el Background ---
+  const navbar = document.getElementById("navbar");
+  const nav = document.querySelector("nav");
+  const classes = ["bg-primary/30", "backdrop-blur-md", "rounded-full", "px-10"];
+  window.addEventListener("scroll", () => {
+    // Si el usuario baja más de 20px
+    if (window.scrollY === 0) {
+      const add = ["top-0", "opacity-100"];
+      const remove = ["top-8", "opacity-0"];
+      
+      nav?.classList.remove(...remove);
+      nav?.classList.add(...add);
+
+      navbar?.classList.remove(...classes);
+    }else if (window.scrollY > 0 && window.scrollY < 1200) {
+      const add = ["opacity-100", "top-8"];
+      const remove = ["top-0", "opacity-0"];
+
+      nav?.classList.add(...add);
+      nav?.classList.remove(...remove);navbar
+
+      navbar?.classList.add(...classes);
+    } else {
+      const add = ["opacity-0", "top-8"];
+      const remove = ["top-0", "opacity-100",];
+      // Volvemos al estado transparente/limpio
+      nav?.classList.add(...add);
+      nav?.classList.remove(...remove);
+
+      navbar?.classList.remove(...classes);
+    }
+  });*/
 </script>
 
 <style></style>
