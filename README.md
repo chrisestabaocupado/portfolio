@@ -51,4 +51,4 @@ pnpm preview    # Preview the production build
 - [pnpm 10.x](https://pnpm.io) - Fast, disk space-efficient package manager
 
 ## 🌐 Live Site
-👉 [https://christophersaeglood.com](https://christophersaeglood.com)
+👉 [https://christopherglood.vercel.app](https://christopherglood.vercel.app)
