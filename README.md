@@ -11,8 +11,7 @@
   <a href="https://pnpm.io"><img src="https://img.shields.io/badge/pnpm-10.x-F69220?style=flat-square&logo=pnpm" alt="pnpm"></a>
 </p>
 
-# Christopher Sae Glood  
-### Fullstack Developer
+# Christopher Sae Glood - Fullstack Developer
 
 A dark-themed personal portfolio focused on clarity, elegance, and performance.  
 Designed to feel more like a digital publication than a typical developer site.
