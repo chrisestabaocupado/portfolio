@@ -18,12 +18,12 @@ export const Projects: Project[] = [
     img_url: "/projects/fasmee.webp",
   },
   {
-    id: "python",
-    title: "Fundamentos de Python",
-    tags: ["Python"],
+    id: "schema.desktop",
+    title: "schema.desktop",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Tauri"],
     description:
-      "Repositorio con fundamentos de Python, ideal para aprender y reforzar conceptos básicos y avanzados.",
-    img_url: "/projects/python.webp",
-    project_url: "https://github.com/chrisestabaocupado/python",
+      "schema.ai es una aplicación de escritorio impulsada por IA para diseñar esquemas de bases de datos mediante lenguaje natural. Describe tu modelo de datos en texto plano, y la aplicación genera diagramas ER interactivos junto con scripts listos para usar de SQL — todo almacenado localmente en tu máquina.",
+    img_url: "/projects/schemadesktop.png",
+    project_url: "https://github.com/chrisestabaocupado/schema.desktop",
   },
 ];
