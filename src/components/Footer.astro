@@ -1,24 +1,36 @@
 ---
-import FilledHeart from '../icons/FilledHeart.astro';
-import LinkedinIcon from '../icons/Linkedin.astro';
-import GithubIcon from '../icons/Github.astro';
-import HomeUp from '../icons/HomeUp.astro';
+import FilledHeart from "../icons/FilledHeart.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import GithubIcon from "../icons/Github.astro";
+import HomeUp from "../icons/HomeUp.astro";
 ---
 
-<footer class="relative flex flex-row justify-between gap-20 py-10 px-6 md:px-12 lg:px-20 lg:max-w-5xl lg:mx-auto">
+<footer
+	class="relative flex flex-row justify-between gap-20 py-10 px-6 md:px-12 lg:px-20 lg:max-w-5xl lg:mx-auto"
+>
 	<!-- Border superior con gradiente -->
-	<div class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary to-transparent"></div>
-	
-	<div class="flex flex-row gap-2 text-text">
+	<div
+		class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary to-transparent"
+	>
+	</div>
+
+	<div
+		class="text-center flex flex-col md:text-left md:flex-row gap-2 text-text"
+	>
 		<span>Made with</span>
-		<FilledHeart />
+		<FilledHeart className="mx-auto md:mx-0"/>
 		<span>by Christopher Glood</span>
 	</div>
 
-	<div class="flex flex-row gap-6">
-		<a href="#" class="group relative text-text hover:text-accent-hover transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded">
+	<div class="flex my-auto h-min flex-row gap-6">
+		<a
+			href="#"
+			class="group relative text-text hover:text-accent-hover transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded"
+		>
 			<HomeUp classes="w-6 h-6" />
-			<span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+			<span
+				class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
+			>
 				Volver arriba
 			</span>
 		</a>
@@ -31,7 +43,9 @@ import HomeUp from '../icons/HomeUp.astro';
 			aria-label="LinkedIn"
 		>
 			<LinkedinIcon classes="w-6 h-6" />
-			<span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+			<span
+				class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
+			>
 				LinkedIn
 			</span>
 		</a>
@@ -43,11 +57,11 @@ import HomeUp from '../icons/HomeUp.astro';
 			aria-label="GitHub"
 		>
 			<GithubIcon classes="w-6 h-6" />
-			<span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+			<span
+				class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
+			>
 				GitHub
 			</span>
 		</a>
-
 	</div>
-
 </footer>

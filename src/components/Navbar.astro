@@ -31,7 +31,7 @@ const sections = [
   </div>
 
   <div
-    class="hidden bg-background-500 rounded-lg mb-2 order-last w-full shadow-md md:mb-0 md:p-0 md:flex md:flex-row md:justify-end md:bg-transparent md:shadow-none"
+    class="hidden bg-background-500 rounded-lg overflow-hidden mb-2 order-last w-full shadow-md md:mb-0 md:p-0 md:flex md:flex-row md:justify-end md:bg-transparent md:shadow-none"
     id="links"
   >
     <ul
@@ -61,39 +61,6 @@ const sections = [
     // Actualizar aria-expanded para accesibilidad
     toggle?.setAttribute("aria-expanded", isHidden ? "false" : "true");
   });
-  /*
-  // --- Lógica del Scroll para el Background ---
-  const navbar = document.getElementById("navbar");
-  const nav = document.querySelector("nav");
-  const classes = ["bg-primary/30", "backdrop-blur-md", "rounded-full", "px-10"];
-  window.addEventListener("scroll", () => {
-    // Si el usuario baja más de 20px
-    if (window.scrollY === 0) {
-      const add = ["top-0", "opacity-100"];
-      const remove = ["top-8", "opacity-0"];
-      
-      nav?.classList.remove(...remove);
-      nav?.classList.add(...add);
-
-      navbar?.classList.remove(...classes);
-    }else if (window.scrollY > 0 && window.scrollY < 1200) {
-      const add = ["opacity-100", "top-8"];
-      const remove = ["top-0", "opacity-0"];
-
-      nav?.classList.add(...add);
-      nav?.classList.remove(...remove);navbar
-
-      navbar?.classList.add(...classes);
-    } else {
-      const add = ["opacity-0", "top-8"];
-      const remove = ["top-0", "opacity-100",];
-      // Volvemos al estado transparente/limpio
-      nav?.classList.add(...add);
-      nav?.classList.remove(...remove);
-
-      navbar?.classList.remove(...classes);
-    }
-  });*/
 </script>
 
 <style></style>
