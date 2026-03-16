@@ -1,15 +1,18 @@
 ---
 import "../styles/global.css";
+import { t, type Lang } from "../i18n/translations";
 
 interface Props {
-  title: string;
+  lang: Lang;
 }
 
-const { title } = Astro.props;
+const { lang } = Astro.props;
+const tr = t(lang);
+const title = tr.pageTitle;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,13 +21,13 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
-    <meta name="description" content="Christopher Sae Glood - Desarrollador Fullstack especializado en React, Node.js, PHP y desarrollo web moderno. Explora mi portfolio con proyectos y experiencia profesional." />
+    <meta name="description" content={tr.pageDescription} />
     <meta name="viewport" content="width=device-width" />
     <!-- Meta tags SEO esenciales -->
     <meta name="author" content="Christopher Sae Glood" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="Spanish" />
-    
+    <meta name="language" content={lang === "es" ? "Spanish" : "English"} />
+
     <!-- Theme color para móviles (barra de estado) -->
     <meta name="theme-color" content="#0F1419" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
@@ -33,17 +36,17 @@ const { title } = Astro.props;
     <link rel="canonical" href={Astro.url.href} />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Christopher Sae Glood | Desarrollador Fullstack" />
-    <meta property="og:description" content="Christopher Sae Glood - Desarrollador Fullstack especializado en React, Node.js, PHP y desarrollo web moderno. Explora mi portfolio con proyectos y experiencia profesional." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={tr.pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:image" content={new URL("/banner_readme.png", Astro.url).href} />
-    <meta property="og:image:alt" content="Christopher Sae Glood - Desarrollador Fullstack" />
+    <meta property="og:image:alt" content={tr.ogImageAlt} />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Christopher Sae Glood | Desarrollador Fullstack" />
-    <meta name="twitter:description" content="Christopher Sae Glood - Desarrollador Fullstack especializado en React, Node.js, PHP y desarrollo web moderno. Explora mi portfolio con proyectos y experiencia profesional." />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={tr.pageDescription} />
     <meta name="twitter:image" content={new URL("/banner_readme.png", Astro.url).href} />
 
     <!-- Structured Data JSON-LD para SEO -->
@@ -96,7 +99,7 @@ const { title } = Astro.props;
   }
 
   p {
-   font-family:sans-serif;
+    font-family: sans-serif;
   }
 
   input, button, textarea, select {

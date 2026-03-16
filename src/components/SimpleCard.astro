@@ -1,5 +1,20 @@
 ---
-const { title, description, project_url, img_url, tags, key, index } = Astro.props;
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  project_url: string;
+  img_url: string;
+  tags: string[];
+  key: string;
+  index: number;
+}
+
+const { lang, title, description, project_url, img_url, tags, key, index } = Astro.props;
+const tr = t(lang);
 const card_id = `project-card-${key}`;
 ---
 
@@ -16,7 +31,7 @@ const card_id = `project-card-${key}`;
         decoding="async"
         class="object-cover object-center w-full h-full transition-transform duration-200 group-hover:scale-105"
         src={img_url}
-        alt={`Captura de pantalla del proyecto ${title}`}
+        alt={`${tr.projectImgAlt} ${title}`}
         width="600"
         height="400"
       />

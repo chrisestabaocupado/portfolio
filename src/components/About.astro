@@ -2,7 +2,15 @@
 import DownloadIcon from "../icons/Download.astro";
 import LinkedinIcon from "../icons/Linkedin.astro";
 import Verified from "../icons/Verified.astro";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
 
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 
 <div class="flex flex-col items-center gap-3 md:gap-6">
@@ -11,7 +19,7 @@ import Verified from "../icons/Verified.astro";
       id="mainImage"
       class="object-fill rounded-full max-h-48 md:max-h-64 w-auto"
       src="/irl_cropped.webp"
-      alt="Christopher Sae Glood"
+      alt={tr.profileAlt}
       width="300"
       height="300"
     />
@@ -25,7 +33,7 @@ import Verified from "../icons/Verified.astro";
   >
     <span class="flex flex-col items-center gap-3 md:gap-6">
       <h1 class="text-4xl font-bold text-light">Christopher Sae Glood</h1>
-      <h2 class="text-2xl font-bold text-accent-500">Programador Fullstack</h2>
+      <h2 class="text-2xl font-bold text-accent-500">{tr.jobTitle}</h2>
     </span>
 
     <div class="flex flex-row flex-wrap justify-center gap-4 w-full sm:gap-8">
@@ -36,7 +44,7 @@ import Verified from "../icons/Verified.astro";
         class="flex flex-row justify-center items-center gap-2 w-full sm:w-auto bg-secondary hover:bg-secondary-hover text-text-inverted rounded-xl px-4 py-2 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
       >
         <DownloadIcon classes="w-6 h-6" />
-        <h4 class="">Descargar CV</h4>
+        <h4 class="">{tr.downloadCV}</h4>
       </a>
       <a
         href="https://linkedin.com/in/christopherglood"
@@ -45,7 +53,7 @@ import Verified from "../icons/Verified.astro";
         class="flex flex-row justify-center items-center gap-2 w-full sm:w-auto border border-secondary hover:border-secondary-hover text-accent hover:text-accent-hover rounded-xl px-4 py-2 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
       >
         <LinkedinIcon classes="w-6 h-6" />
-        <h4 class="">Contáctame</h4>
+        <h4 class="">{tr.contact}</h4>
       </a>
     </div>
   </div>

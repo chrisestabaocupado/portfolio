@@ -1,0 +1,131 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import About from "../../components/About.astro";
+import DetailedAbout from "../../components/DetailedAbout.astro";
+import Timeline from "../../components/Timeline.astro";
+import SimpleCard from "../../components/SimpleCard.astro";
+import { expData } from "../../data/Exp";
+import type { Exp } from "../../data/Exp";
+import { projectsData } from "../../data/Projects";
+import type { Project } from "../../data/Projects";
+import { t } from "../../i18n/translations";
+
+const lang = "es" as const;
+const otherLangUrl = "/en/";
+const tr = t(lang);
+const exps = expData[lang];
+const projects = projectsData[lang];
+---
+
+<Layout lang={lang}>
+  <header>
+    <nav
+      class="px-6 md:px-12 lg:px-20 w-full text-gray-50 z-50 transition-all duration-300 ease-in-out"
+    >
+      <Navbar lang={lang} otherLangUrl={otherLangUrl} />
+    </nav>
+  </header>
+
+  <main
+    class="flex flex-col gap-20 py-10 px-6 md:px-12 md:py-16 lg:px-20 lg:max-w-6xl lg:mx-auto"
+  >
+    <!-- Sección Sobre Mí -->
+    <div id="hero" class="reveal">
+      <About lang={lang} />
+    </div>
+
+    <!-- Sección Experiencia Laboral -->
+    <section class="relative flex flex-col gap-10">
+      <h2 class="text-center text-light font-bold text-3xl reveal">
+        {tr.sectionExperience}
+      </h2>
+
+      <div
+        class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-linear-to-r from-primary/20 via-primary to-primary/20 transform -translate-y-1/2"
+      >
+      </div>
+
+      <div class="flex flex-wrap justify-around gap-12 md:gap-6">
+        {
+          exps.map((exp: Exp, index: number) => (
+            <Timeline
+              key={exp.id}
+              date={exp.date}
+              title={exp.title}
+              description={exp.description}
+              url={exp.url}
+              details={exp.details}
+              isFirst={index === 0}
+              isLast={index === exps.length - 1}
+              isTop={index % 2 === 0}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="projects" class="flex flex-col gap-10">
+      <h2 class="text-center text-light font-bold text-3xl reveal">
+        {tr.sectionProjects}
+      </h2>
+      {
+          projects.map((project: Project, index: number) => (
+          <SimpleCard
+            lang={lang}
+            index={index}
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            img_url={project.img_url}
+            project_url={project.project_url}
+            tags={project.tags}
+          />
+        ))
+      }
+    </section>
+
+    <section id="detailedaboutme" class="flex flex-col gap-10 reveal">
+      <h2 class="text-center text-light font-bold text-3xl">{tr.sectionAbout}</h2>
+      <DetailedAbout lang={lang} />
+    </section>
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<script>
+  import { inView, animate } from "motion";
+
+  inView(
+    ".reveal",
+    (element) => {
+      animate(
+        element,
+        {
+          opacity: [0, 1],
+          y: [20, 0],
+          filter: ["blur(4px)", "blur(0px)"],
+        },
+        {
+          duration: 0.6,
+          ease: [0.17, 0.55, 0.55, 1],
+        },
+      );
+    },
+    { amount: "some" },
+  );
+</script>
+
+<style>
+  .reveal {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+    }
+  }
+</style>

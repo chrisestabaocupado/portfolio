@@ -1,45 +1,57 @@
 ---
 import DropdownIcon from "../icons/Dropdown.astro";
 import MailIcon from "../icons/Mail.astro";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+  otherLangUrl: string;
+}
+
+const { lang, otherLangUrl } = Astro.props;
+const tr = t(lang);
+const otherLangLabel = lang === "es" ? "EN" : "ES";
+
 const sections = [
-  { name: "Inicio", href: "#" },
-  { name: "Sobre mi", href: "#detailedaboutme" },
-  { name: "Proyectos", href: "#projects" },
+  { name: tr.navHome, href: "#" },
+  { name: tr.navProjects, href: "#projects" },
+  { name: tr.navAbout, href: "#detailedaboutme" },
 ];
 ---
 
 <div
   id="navbar"
-  class="flex flex-row z-50 w-full h-max flex-wrap justify-between text-text gap-4 py-4 items-center md:flex-nowrap md:px-20 md:max-w-6xl lg:mx-auto transition-all duration-300 ease-in-out"
+  class="z-50 flex flex-row flex-wrap items-center justify-between w-full gap-4 py-4 transition-all duration-300 ease-in-out h-max text-text md:flex-nowrap md:px-20 md:max-w-6xl lg:mx-auto"
 >
-  <div class="flex flex-row justify-between items-center w-full">
+  <div class="flex flex-row items-center justify-between w-full">
     <a
-      class="flex flex-row gap-1 items-center hover:text-accent-hover transition-colors duration-200 md:w-max"
+      class="flex flex-row items-center gap-1 transition-colors duration-200 hover:text-accent-hover md:w-max"
       href="mailto:christopherglood@gmail.com"
     >
       <MailIcon classes="w-4 h-4" />
       <span>christopherglood@gmail.com</span>
     </a>
     <button
-      aria-label="Abrir menú de navegación"
+      aria-label={tr.navOpen}
       aria-expanded="false"
       id="links-toggle"
-      class="rounded border p-2 border-transparent hover:bg-primary-hover transition-colors duration-200 md:hidden md:w-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      class="p-2 transition-colors duration-200 border border-transparent rounded hover:bg-primary-hover md:hidden md:w-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <DropdownIcon />
     </button>
   </div>
 
   <div
-    class="hidden bg-background-500 rounded-lg overflow-hidden mb-2 order-last w-full shadow-md md:mb-0 md:p-0 md:flex md:flex-row md:justify-end md:bg-transparent md:shadow-none"
+    class="order-last hidden w-full mb-2 overflow-hidden rounded-lg shadow-md bg-background-500 md:mb-0 md:p-0 md:flex md:flex-row md:justify-end md:bg-transparent md:shadow-none"
     id="links"
   >
     <ul
-      class="flex flex-col justify-between items-center text-center sm:flex-row md:gap-10 md:w-fit"
+      class="flex flex-col items-center justify-between text-center sm:flex-row md:gap-10 md:w-fit"
     >
       {
         sections.map((section) => (
-          <li class="w-full hover:bg-primary-hover transition-colors duration-200 md:hover:bg-transparent">
+          <li class="w-full transition-colors duration-200 hover:bg-primary-hover md:hover:bg-transparent">
              <a
                class="inline-block w-full py-2.5 hover:text-accent-hover transition-colors duration-200 md:w-max focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:rounded focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                href={section.href}
@@ -49,6 +61,16 @@ const sections = [
           </li>
         ))
       }
+
+      <li>
+        <a
+          href={otherLangUrl}
+          aria-label={tr.navLangToggle}
+          class="flex items-center justify-center w-10 h-10 font-bold transition-colors duration-200 border rounded-lg hover:cursor-pointer border-accent hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive focus-visible:ring-offset-2 focus-visible:ring-offset-background text-accent-900"
+        >
+          {otherLangLabel}
+        </a>
+      </li>
     </ul>
   </div>
 </div>

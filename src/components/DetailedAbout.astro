@@ -1,4 +1,13 @@
 ---
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 
 <div
@@ -6,21 +15,8 @@
   class="w-full flex flex-col lg:flex-row gap-4 lg:gap-8"
 >
   <div class="flex flex-col gap-4 w-full lg:w-full text-text">
-    <p>
-      ¡Hola! Soy Christopher Glood, un desarrollador con una profunda pasión por
-      la tecnología y la innovación. Siempre busco aprender nuevas herramientas
-      y enfoques para crear soluciones que faciliten el acceso a información y
-      mejoren la experiencia digital de las personas.
-    </p>
-    <p>
-      Desde joven, la tecnología ha sido una de mis grandes pasiones, pero
-      también la música, lo que ha influido en mi enfoque creativo en la
-      programación.
-    </p>
-    <p>
-      Mi objetivo es seguir aprendiendo y contribuir al desarrollo de soluciones
-      tecnológicas que beneficien a la comunidad y mejoren el acceso a contenido
-      de calidad.
-    </p>
+    <p>{tr.bioP1}</p>
+    <p>{tr.bioP2}</p>
+    <p>{tr.bioP3}</p>
   </div>
 </div>

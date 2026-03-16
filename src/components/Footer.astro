@@ -3,6 +3,15 @@ import FilledHeart from "../icons/FilledHeart.astro";
 import LinkedinIcon from "../icons/Linkedin.astro";
 import GithubIcon from "../icons/Github.astro";
 import HomeUp from "../icons/HomeUp.astro";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 
 <footer
@@ -17,9 +26,9 @@ import HomeUp from "../icons/HomeUp.astro";
 	<div
 		class="text-center flex flex-col md:text-left md:flex-row gap-2 text-text"
 	>
-		<span>Made with</span>
+		<span>{tr.footerMadeWith}</span>
 		<FilledHeart classes="mx-auto md:mx-0"/>
-		<span>by Christopher Glood</span>
+		<span>{tr.footerBy}</span>
 	</div>
 
 	<div class="flex my-auto h-min flex-row gap-6">
@@ -31,7 +40,7 @@ import HomeUp from "../icons/HomeUp.astro";
 			<span
 				class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-light bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
 			>
-				Volver arriba
+				{tr.footerBackToTop}
 			</span>
 		</a>
 
