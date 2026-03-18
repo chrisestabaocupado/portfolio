@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-5.x-BC52EE?style=flat-square&logo=astro" alt="Astro"></a>
+  <a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-6.x-BC52EE?style=flat-square&logo=astro" alt="Astro"></a>
   <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript" alt="TypeScript"></a>
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4.1-06B6D4?style=flat-square&logo=tailwindcss" alt="Tailwind CSS"></a>
   <a href="https://motion.dev"><img src="https://img.shields.io/badge/Motion-12.x-FF0055?style=flat-square&logo=framer" alt="Motion"></a>
